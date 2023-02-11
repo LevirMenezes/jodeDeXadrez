@@ -23,6 +23,10 @@ namespace Pecas
             Tab = tab;
         }
 
+        public void IncrementarQteMovimentos()
+        {
+            qteMoivimentos++;
+        }
        
     
     }
