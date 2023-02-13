@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Cores;
 using Posicoes;
-using Tabuleiros;
+using tabuleiro;
 namespace Pecas
 {
     abstract class Peca

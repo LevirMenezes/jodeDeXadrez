@@ -14,13 +14,14 @@ namespace xadrez
 
         public PosicaoXadrez(char coluna, int linha)
         {
-            Coluna = coluna;
             Linha = linha;
+            Coluna = coluna;
         }
+
 
         public Posicao ToPosicao()
         {
-            return new Posicao(8 - Linha, (Coluna - 'a'));
+            return new Posicao(8 - Linha, Coluna - 'a');
         }
 
         public override string ToString()

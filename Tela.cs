@@ -1,5 +1,5 @@
 ﻿using System;
-using Tabuleiros;
+using tabuleiro;
 using Pecas;
 using Cores;
 using xadrez;
@@ -13,12 +13,12 @@ namespace Telas
         public static void ImprimirTabuleiro(Tabuleiro tab)
         { 
             
-            for (int l = 0; l < tab.Linhas; l++) 
+            for (int l = 0; l < tab.linhas; l++) 
             {
                 Console.Write(8 - l + " ");
-                for (int c=0; c<tab.Colunas;c++)
+                for (int c=0; c<tab.colunas;c++)
                 {
-                    ImprimirPeca(tab.Peca(l, c));
+                    ImprimirPeca(tab.peca(l, c));
                 }
                 Console.WriteLine();
             }
@@ -29,10 +29,10 @@ namespace Telas
         {
             ConsoleColor fundoOriginal = Console.BackgroundColor;
             ConsoleColor fundoAlterado = ConsoleColor.DarkGray;
-            for (int l = 0; l < tab.Linhas; l++)
+            for (int l = 0; l < tab.linhas; l++)
             {
                 Console.Write(8 - l + " ");
-                for (int c = 0; c < tab.Colunas; c++)
+                for (int c = 0; c < tab.colunas; c++)
                 {
                     if (posicoesPossiveis[l,c])
                     {
@@ -42,7 +42,8 @@ namespace Telas
                     {
                         Console.BackgroundColor = fundoOriginal;
                     }
-                    ImprimirPeca(tab.Peca(l, c));
+                    ImprimirPeca(tab.peca(l, c));
+                    Console.BackgroundColor = fundoOriginal;
                 }
                 Console.WriteLine();
             }
@@ -72,6 +73,7 @@ namespace Telas
                 if (peca.Cor == Cor.Branca)
                 {
                     Console.Write(peca);
+                    Console.Write(" ");
                 }
                 else
                 {
@@ -79,6 +81,7 @@ namespace Telas
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.Write(peca);
                     Console.ForegroundColor = aux;
+                    Console.Write(" ");
                 }
             }
             Console.Write(" ");

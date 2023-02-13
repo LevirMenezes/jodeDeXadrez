@@ -2,7 +2,7 @@
 using Posicoes;
 using System;
 using TabuleiroExceptions;
-using Tabuleiros;
+using tabuleiro;
 using Telas;
 using xadrez;
 namespace xadrez_console
@@ -23,10 +23,10 @@ namespace xadrez_console
                     Console.Write("Origem: ");
                     Posicao origem = Tela.LerPosicaoXadrez().ToPosicao();
 
-                    bool[,] posicoesPossiveis = partida.tab.Peca(origem).MovimentosPossiveis();
+                    bool[,] logico = partida.tab.peca(origem).MovimentosPossiveis();
 
                     Console.Clear();
-                    Tela.ImprimirTabuleiro(partida.tab, posicoesPossiveis);
+                    Tela.ImprimirTabuleiro(partida.tab, logico);
                     
                     Console.Write("Destino: ");
                     Posicao destino = Tela.LerPosicaoXadrez().ToPosicao();
