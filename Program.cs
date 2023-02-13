@@ -20,7 +20,8 @@ namespace xadrez_console
                     Console.Clear();
                     Tela.ImprimirTabuleiro(partida.tab);
                     Console.WriteLine();
-                    Console.Write("Origem: ");
+                    Console.Write("Turno: " + partida.turno);
+                    Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);
                     Posicao origem = Tela.LerPosicaoXadrez().ToPosicao();
 
                     bool[,] logico = partida.tab.peca(origem).MovimentosPossiveis();

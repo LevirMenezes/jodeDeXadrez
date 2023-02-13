@@ -9,8 +9,10 @@ namespace xadrez
     class PartidaXadrez
     {
         public Tabuleiro tab { get; private set; }
-        private int turno;
-        private Cor jogadorAtual;
+        public int turno { get; private set; }
+        public Cor JogadorAtual { get; private set; }
+        
+       
         public bool terminada { get; private set; }
 
         public PartidaXadrez()
@@ -47,5 +49,16 @@ namespace xadrez
             tab.colocarPeca(new Rei(Cor.Preta, tab), new PosicaoXadrez('d', 8).ToPosicao());
         }
 
+        public void realizaJogada(Posicao origem, Posicao destino)
+        {
+            if (jogadorAtual == Cor.Branca)
+            {
+                jogadorAtual = Cor.Preta;
+            }
+            else
+            {
+                jogadorAtual = Cor.Branca;
+            }
+        }
     }
 }
