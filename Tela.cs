@@ -9,7 +9,7 @@ namespace Telas
 {
     class Tela
     {
-        Tabuleiro tab = new Tabuleiro(8,8);
+        Tabuleiro tab = new Tabuleiro(8, 8);
 
         public static void imprimirPartida(PartidaXadrez partida)
         {
@@ -18,10 +18,20 @@ namespace Telas
             imprimirPecasCapturadas(partida);
             Console.WriteLine();
             Console.Write("Turno: " + partida.turno);
-            Console.WriteLine("\nAguardando jogada: " + partida.JogadorAtual);
-            if (partida.xeque)
+            if (!partida.terminada)
             {
-                Console.WriteLine("Você está em Xeque!");
+
+
+                Console.WriteLine("\nAguardando jogada: " + partida.JogadorAtual);
+                if (partida.xeque)
+                {
+                    Console.WriteLine("Você está em Xeque!");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Xequemate!");
+                Console.WriteLine("Vencedor: " + partida.JogadorAtual);
             }
         }
 
@@ -31,7 +41,7 @@ namespace Telas
 
             Console.Write("Brancas: ");
             imprimirConjunto(partida.pecasCapturadas(Cor.Branca));
-            
+
             Console.Write("\nPretas: ");
             ConsoleColor aux = Console.ForegroundColor;
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -50,12 +60,12 @@ namespace Telas
             Console.Write("]");
         }
         public static void ImprimirTabuleiro(Tabuleiro tab)
-        { 
-            
-            for (int l = 0; l < tab.linhas; l++) 
+        {
+
+            for (int l = 0; l < tab.linhas; l++)
             {
                 Console.Write(8 - l + " ");
-                for (int c=0; c<tab.colunas;c++)
+                for (int c = 0; c < tab.colunas; c++)
                 {
                     ImprimirPeca(tab.peca(l, c));
                 }
@@ -73,7 +83,7 @@ namespace Telas
                 Console.Write(8 - l + " ");
                 for (int c = 0; c < tab.colunas; c++)
                 {
-                    if (posicoesPossiveis[l,c])
+                    if (posicoesPossiveis[l, c])
                     {
                         Console.BackgroundColor = fundoAlterado;
                     }
@@ -123,7 +133,7 @@ namespace Telas
                     Console.Write(" ");
                 }
             }
-            
+
         }
     }
 }
