@@ -3,13 +3,45 @@ using tabuleiro;
 using Pecas;
 using Cores;
 using xadrez;
-
+using System.Collections.Generic;
 namespace Telas
 
 {
     class Tela
     {
         Tabuleiro tab = new Tabuleiro(8,8);
+
+        public static void imprimirPartida(PartidaXadrez partida)
+        {
+            ImprimirTabuleiro(partida.tab);
+            Console.WriteLine();
+            imprimirPecasCapturadas(partida);
+            Console.WriteLine();
+            Console.Write("Turno: " + partida.turno);
+            Console.WriteLine("\nAguardando jogada: " + partida.JogadorAtual);
+        }
+
+        public static void imprimirPecasCapturadas(PartidaXadrez partida)
+        {
+            Console.WriteLine("Peças capturadas:");
+
+            Console.Write("Brancas: ");
+            imprimirConjunto(partida.pecasCapturadas(Cor.Branca));
+            
+            Console.Write("\nPretas: ");
+            imprimirConjunto(partida.pecasCapturadas(Cor.Preta));
+            Console.WriteLine();
+        }
+
+        public static void imprimirConjunto(HashSet<Peca> conjunto)
+        {
+            Console.Write("[");
+            foreach (Peca p in conjunto)
+            {
+                Console.Write(p);
+            }
+            Console.Write("]");
+        }
         public static void ImprimirTabuleiro(Tabuleiro tab)
         { 
             
@@ -84,7 +116,7 @@ namespace Telas
                     Console.Write(" ");
                 }
             }
-            Console.Write(" ");
+            
         }
     }
 }
