@@ -19,6 +19,10 @@ namespace Telas
             Console.WriteLine();
             Console.Write("Turno: " + partida.turno);
             Console.WriteLine("\nAguardando jogada: " + partida.JogadorAtual);
+            if (partida.xeque)
+            {
+                Console.WriteLine("Você está em Xeque!");
+            }
         }
 
         public static void imprimirPecasCapturadas(PartidaXadrez partida)
@@ -29,7 +33,10 @@ namespace Telas
             imprimirConjunto(partida.pecasCapturadas(Cor.Branca));
             
             Console.Write("\nPretas: ");
+            ConsoleColor aux = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Yellow;
             imprimirConjunto(partida.pecasCapturadas(Cor.Preta));
+            Console.ForegroundColor = aux;
             Console.WriteLine();
         }
 

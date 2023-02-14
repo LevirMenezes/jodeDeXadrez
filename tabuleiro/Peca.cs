@@ -28,6 +28,10 @@ namespace Pecas
             qteMoivimentos++;
         }
 
+        public void decrementarQteMovimento()
+        {
+            qteMoivimentos--;
+        }
         public bool ExisteMovimentosPossiveis()
         {
             bool[,] mat = MovimentosPossiveis();
