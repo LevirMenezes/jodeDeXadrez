@@ -30,7 +30,7 @@ namespace Telas
             }
             else
             {
-                Console.WriteLine("Xequemate!");
+                Console.WriteLine("\nXequemate!");
                 Console.WriteLine("Vencedor: " + partida.JogadorAtual);
             }
         }
